@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 200 200"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="10"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <!--
+    UNREAL Performance logo — two perpendicular elongated capsules.
+
+    Both elements are identical rounded rectangles 60 x 160 with corner
+    radius 30 (semicircular ends). Both centred on (100, 100).
+      - Element 1: rotated 45° around centre
+      - Element 2: rotated 135° around centre (= 45° + 90°, perpendicular)
+
+    In each element's local frame (un-rotated, horizontal capsule along
+    its long axis), the perimeter crosses the other element's perimeter
+    at the four points (±30, ±30). In the global viewBox frame those four
+    crossings end up at the cardinal points N (100, 57.6), E (142.4, 100),
+    S (100, 142.4), W (57.6, 100) — i.e. the diagonal corners of the
+    inner square that the spec describes as "superior-direito" etc.
+
+    Alternating Celtic weave:
+      - At N and S → element 1 is OVER (no gap in element 1, gap in element 2)
+      - At E and W → element 2 is OVER (gap in element 1, no gap in element 2)
+
+    Each element is a single <path> that draws its full perimeter as
+    several sub-paths separated by `M` (move-to) commands at the two
+    "under" crossings. With stroke-linecap="round" the gaps are clean
+    rounded interruptions and the over-element renders continuously.
+
+    pathLength="1" normalises each path for strokeDasharray animation.
+  -->
+
+  <g transform="translate(100 100)">
+    <!-- Element 1 — capsule rotated 45°.
+         Gaps at local (30, -30) [crossing E] and (-30, 30) [crossing W],
+         where element 1 passes UNDER element 2. -->
+    <g transform="rotate(45)">
+      <path
+        d="M 50 -30 A 30 30 0 0 1 50 30 L -20 30 M -40 30 L -50 30 A 30 30 0 0 1 -50 -30 L 20 -30 M 40 -30 L 50 -30"
+        data-element-index="1"
+        pathLength="1"
+      />
+    </g>
+
+    <!-- Element 2 — same capsule rotated 135°.
+         Gaps at local (30, 30) [crossing N] and (-30, -30) [crossing S],
+         where element 2 passes UNDER element 1. -->
+    <g transform="rotate(135)">
+      <path
+        d="M 50 -30 A 30 30 0 0 1 50 30 L 40 30 M 20 30 L -50 30 A 30 30 0 0 1 -50 -30 L -40 -30 M -20 -30 L 50 -30"
+        data-element-index="2"
+        pathLength="1"
+      />
+    </g>
+  </g>
+</svg>
