@@ -1,5 +1,10 @@
 # UNREAL Performance
 
+[![CI](https://github.com/mborges-dev/unreal-performance/actions/workflows/ci.yml/badge.svg)](https://github.com/mborges-dev/unreal-performance/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black.svg)](https://nextjs.org/)
+[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12-pink.svg)](https://framer.com/motion)
+
 Marketing site for UNREAL Performance — an AI automation studio based in Lisbon, Portugal.
 
 ## Stack
